@@ -1,13 +1,8 @@
 package com.example.biometricauth
 
-import android.app.Notification
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -20,12 +15,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     var biometricPrompt: BiometricPrompt? = null
-
-    var createBubble: Button? = null
-
-    var builder: Notification.Builder? = null
-    var notificationManager: NotificationManager? = null
-    var channel: NotificationChannel? = null
 
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -111,20 +100,6 @@ class MainActivity : AppCompatActivity() {
                     .show()
 
             }
-
-        }
-
-        btnFaceAuth.setOnClickListener {
-
-
-            val packageManager: PackageManager = this.packageManager
-            val hasFace = packageManager.hasSystemFeature(PackageManager.FEATURE_FACE)
-            Toast.makeText(
-                applicationContext, hasFace.toString(),
-                Toast.LENGTH_SHORT
-            )
-                .show()
-
 
         }
 
